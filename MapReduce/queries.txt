@@ -6,11 +6,8 @@ show tables;
  
 DESCRIBE delay_flights;
  
- 
 LOAD DATA INPATH 's3://delayflight-bigdata/input/DelayedFlights-updated.csv' OVERWRITE INTO TABLE delay_flights;
- 
- 
- 
+
 SELECT Year, avg((CarrierDelay/ArrDelay)*100) as Year_wise_carrier_delay from delay_flights GROUP BY Year ORDER BY Year DESC;
 
 SELECT Year, avg((NASDelay/ArrDelay)*100) as Year_wise_nas_delay from delay_flights GROUP BY Year ORDER BY Year DESC;
